@@ -1,4 +1,4 @@
-# job-searching-app
+# Woreer - a women-specific job searching app
 
 ## Build Setup
 
