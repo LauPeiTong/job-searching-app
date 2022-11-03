@@ -1,30 +1,43 @@
 <template lang="pug">
 .fill-height.job-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:title="'Job'")
+    upper-title.ma-0(:title="'Job'" :icon="'bookmark'")
     w-search-bar.ma-0(@change="searchBy")
-  v-row.ma-0.px-4.mt-8.scroll.justify-center
-    statistic-card.pb-2
-    
+  .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
+      statistic-card.pb-2
+      category-list.pb-4.px-4
+      job-list.px-4.pb-4(:items="recommendedJob" :title="'Recommeded for you'")
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
-import StatisticCard from '../components/StatisticCard.vue'
+import StatisticCard from '../components/Job/StatisticCard.vue'
+import CategoryList from '../components/Job/CategoryList.vue'
+import JobList from '../components/Job/JobList.vue'
 
 export default {
   name: 'JobPage',
   components: {
     UpperTitle,
     WSearchBar,
-    StatisticCard
+    StatisticCard,
+    CategoryList,
+    JobList
   },
   layout: 'default',
   data () {
     return {
       search: null
     }
+  },
+  computed: {
+    ...mapGetters({
+      scrollSize: 'screen/getScrollClass',
+      recommendedJob: 'job/getRecommededJob'
+    })
   },
   methods: {
     searchBy (newValue) {
@@ -38,7 +51,6 @@ export default {
 :deep(.scroll) {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 300px;
   width: 100% !important;
 }
 

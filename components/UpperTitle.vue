@@ -5,7 +5,7 @@
       h3(:class="textColor") {{ title }}
     v-col.text-center(:cols="2")
       w-icon(
-        :icon-name="'bookmark'"
+        :icon-name="icon"
         :icon-fill="this.$vuetify.theme.themes.light.primary"
         @click=""
       )
@@ -27,6 +27,10 @@ export default {
       default: null
     },
     titleClass: {
+      type: String,
+      default: null
+    },
+    icon: {
       type: String,
       default: null
     }

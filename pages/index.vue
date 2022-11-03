@@ -4,6 +4,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'IndexPage',
   layout: 'welcome',
@@ -14,6 +16,10 @@ export default {
   },
   created(){
     setTimeout( () => this.$router.push({ path: '/job'}), 1000);
+  },
+  methods: {
+    ...mapActions({
+    })
   }
 }
 </script>

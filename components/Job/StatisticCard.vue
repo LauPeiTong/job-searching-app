@@ -1,5 +1,5 @@
 <template lang="pug">
-.statistic-card
+.statistic-card.px-4
   v-card.rounded-lg(outlined)
     v-list-item.pt-2(three-line)
       v-list-item-content
@@ -20,7 +20,7 @@ export default {
   },
   data () {
     return {
-      statisticLogo: require('../assets/logo/StatisticLogo.jpg')
+      statisticLogo: require('../../assets/logo/StatisticLogo.jpg')
     }
   },
   computed: {

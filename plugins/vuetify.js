@@ -12,7 +12,8 @@ export default new Vuetify({
         darkGrey: '#848484',
         lightGrey: '#C1C1C1',
         warning: '#EB7100', // red
-        success: '#009966' // green
+        success: '#009966', // green
+        brown: '#918679'
       }
     }
   }
