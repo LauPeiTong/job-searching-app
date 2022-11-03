@@ -2,7 +2,7 @@
   "name": "job-searching-app",
   "version": "1.0.0",
   "engines": {
-    "node": ">=16.0.0 <17.0.0"
+    "node": "16.x"
   },
   "private": true,
   "scripts": {
