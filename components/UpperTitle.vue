@@ -1,0 +1,67 @@
+<template lang="pug">
+  v-row.pt-8.pb-6.upper-title(dense :class="titleClass")
+    v-col(:cols="2")
+    v-col.text-center(:cols="8")
+      h3(:class="textColor") {{ title }}
+    v-col.text-center(:cols="2")
+      w-icon(
+        :icon-name="'bookmark'"
+        :icon-fill="this.$vuetify.theme.themes.light.primary"
+        @click=""
+      )
+
+</template>
+
+<script>
+import { mapGetters, mapActions } from 'vuex'
+import WIcon from './componenets-custom/WIcon.vue'
+
+export default {
+  name: 'UpperTitle',
+  components: { 
+    WIcon
+  },
+  props: {
+    title: {
+      type: String,
+      default: null
+    },
+    titleClass: {
+      type: String,
+      default: null
+    }
+  },
+  data () {
+    return {
+    }
+  },
+  computed: {
+    ...mapGetters({
+    }),
+    textColor () {
+      if (this.titleClass === 'dark-background') {
+        return 'tertiary--text'
+      } else {
+        return "secondary--text"
+      }
+    }
+  },
+  methods: {
+    ...mapActions({
+    }),
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.upper-title {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-radius: 0px 0px 25px 25px;
+}
+
+.dark-background {
+  background-color: #404348;
+}
+</style>

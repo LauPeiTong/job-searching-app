@@ -1,6 +1,5 @@
 <template lang="pug">
-  v-btn.text-none.rounded-lg(
-    v-if="!circleButton"
+  v-btn.woreer-button.text-none.rounded-lg(
     elevation="0"
     :block="block"
     :min-height="buttonMinHeight"
@@ -21,9 +20,6 @@
       .right-action
         slot(name="action")
 
-  v-btn(v-else icon :color="buttonColor" width='24' height='24' :to="to" )
-    client-only
-      eva-icon(:name="iconName" :fill="iconFill" @click="emitClick")
 </template>
 <script>
 export default {
@@ -74,10 +70,6 @@ export default {
       default: false
     },
     iconOnly: {
-      type: Boolean,
-      default: false
-    },
-    circleButton: {
       type: Boolean,
       default: false
     }
