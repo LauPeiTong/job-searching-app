@@ -1,6 +1,11 @@
 <template lang="pug">
   v-row.pt-8.pb-6.upper-title(dense :class="titleClass")
-    v-col(:cols="2")
+    v-col.text-center(:cols="2")
+      w-icon(
+        :icon-name="'arrow-ios-back-outline'"
+        :icon-fill="this.$vuetify.theme.themes.light.primary"
+        @click="emitBack()"
+      )
     v-col.text-center(:cols="8")
       h3(:class="textColor") {{ title }}
     v-col.text-center(:cols="2")
@@ -53,6 +58,9 @@ export default {
   methods: {
     ...mapActions({
     }),
+    emitBack () {
+      this.$emit('goBack')
+    }
   }
 }
 </script>

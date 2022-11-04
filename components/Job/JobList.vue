@@ -10,7 +10,7 @@
           :label="item.name"
           :label2="getCompany(item.company).name"
           :label3="getCompany(item.company).location"
-          :corner-icon="'bookmark-outline'"
+          :corner-icon="'bookmark'"
         )
             template(v-slot:action)
               v-row.mt-8

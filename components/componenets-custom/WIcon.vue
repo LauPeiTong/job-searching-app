@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-btn.woreer-icon(icon :color="buttonColor" width='24' height='24' :to="to" )
+  v-btn.woreer-icon(icon :color="buttonColor" :width="width" :height="height" :to="to" )
     client-only
       eva-icon(:name="iconName" :fill="iconFill" @click="emitClick")
 </template>
@@ -19,6 +19,14 @@ export default {
       type: Boolean,
       default: false
     },
+    width: {
+      type: Number,
+      default: 24
+    },
+    height: {
+      type: Number,
+      default: 24
+    },
     to: {
       type: String,
       default: null
@@ -26,7 +34,7 @@ export default {
   },
   computed: {
     buttonColor () {
-      let color = 'primary'
+      let color = this.iconFill
 
       if (this.color) { color = this.color }
       if (this.disabled) { color = 'darkGrey' }

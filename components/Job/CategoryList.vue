@@ -1,7 +1,20 @@
 <template lang="pug">
 .category-list
-  p.text-h6.font-weight-bold.pt-4 Category
-  v-row.px-4.scroll-x.pt-2(:style="scrollSize")
+  v-row.pa-0.ma-0
+    v-col.pa-0.ma-0
+      p.text-h6.font-weight-bold.pt-4.mb-0 Category
+    v-col.pa-0.ma-0.d-flex
+      v-row.pt-4.mb-1.pr-4.align-end.justify-end(@click="viewAllCategories()")
+        p.mb-0 View all
+        w-icon.ml-3(
+          :height="20"
+          :width="20"
+          :icon-name="'arrow-forward-outline'"
+          :icon-fill="this.$vuetify.theme.themes.light.brown"
+          @click=""
+        )
+
+  v-row.px-4.scroll-x(:style="scrollSize")
     vue-horizontal-list(
       :items="categories"
       :options="options"
@@ -31,11 +44,13 @@
 import { mapGetters, mapActions } from 'vuex'
 import VueHorizontalList from 'vue-horizontal-list';
 import WCard from '../componenets-custom/WCard.vue'
+import WIcon from '../componenets-custom/WIcon.vue'
 
 export default {
   name: 'CategoryList',
   components: {
     WCard,
+    WIcon,
     VueHorizontalList
   },
   props: {
@@ -73,6 +88,9 @@ export default {
     },
     getName (name) {
       return name === 'IT' ? 'information technology' : name.toLowerCase()
+    },
+    viewAllCategories () {
+      this.$router.push('/categories')
     }
   }
 }
