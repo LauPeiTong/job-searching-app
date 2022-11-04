@@ -2,6 +2,7 @@
   v-row.pt-8.pb-6.upper-title(dense :class="titleClass")
     v-col.text-center(:cols="2")
       w-icon(
+        v-if="back === true"
         :icon-name="'arrow-ios-back-outline'"
         :icon-fill="this.$vuetify.theme.themes.light.primary"
         @click="emitBack()"
@@ -38,6 +39,10 @@ export default {
     icon: {
       type: String,
       default: null
+    },
+    back: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

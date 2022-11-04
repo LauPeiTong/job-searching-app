@@ -1,14 +1,14 @@
 <template lang="pug">
 .fill-height.job-page.pa-0.ma-0
   v-row.pa-0.ma-0.upper-row
-    upper-title.ma-0(:title="'Category'" :icon="'bookmark'" :title-class="'dark-background'" @goBack="goBackToJobPage")
+    upper-title.ma-0(:title="'Category'" :icon="'bookmark'" :title-class="'dark-background'" @goBack="goBackToJobPage" :back="true")
     w-search-bar.ma-0(@change="searchBy")
   .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
     v-item-group.pt-2.pb-12
       v-row.px-6
         v-col.px-1.py-2(v-for='item in categories' :key="item.id" :cols='6' )
           w-card.d-flex.flex-column(
-            @click=""
+            @click="goToJobsPage(item)"
             :height="150"
             :label="item.name"
             :label2="'View the job related to ' + getName(item.name) + ' job'"
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
@@ -53,6 +53,9 @@ export default {
     })
   },
   methods: {
+    ...mapActions({
+      changeSelectedCategory: 'job/changeSelectedCategory'
+    }),
     searchBy (newValue) {
       this.search = newValue
     },
@@ -70,6 +73,10 @@ export default {
     },
     getName (name) {
       return name === 'IT' ? 'information technology' : name.toLowerCase()
+    },
+    goToJobsPage (item) {
+      this.changeSelectedCategory(item)
+      this.$router.push('/jobs')
     }
   }
 }

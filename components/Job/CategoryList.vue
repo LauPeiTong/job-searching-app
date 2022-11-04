@@ -21,7 +21,7 @@
     )
       template(v-slot:default="{item}")
         w-card.d-flex.flex-column(
-          @click=""
+          @click="goToJobsPage(item)"
           :height="150"
           :label="item.name"
           :label2="'View the job related to ' + getName(item.name) + ' job'"
@@ -71,11 +71,12 @@ export default {
   computed: {
     ...mapGetters({
       categories: 'job/getCategories',
-      scrollSize: 'screen/getScrollXClass'
+      scrollSize: 'screen/getScrollXClass',
     }),
   },
   methods: {
     ...mapActions({
+      changeSelectedCategory: 'job/changeSelectedCategory'
     }),
     cardColor (id) {
       if (id % 3 === 1) {
@@ -91,6 +92,10 @@ export default {
     },
     viewAllCategories () {
       this.$router.push('/categories')
+    },
+    goToJobsPage (item) {
+      this.changeSelectedCategory(item)
+      this.$router.push('/jobs')
     }
   }
 }

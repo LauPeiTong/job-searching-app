@@ -11,6 +11,11 @@
       return {
         width: `${window.innerWidth - 16}px`
       }
+    },
+    getWidthClass (state) {
+      return {
+        'min-width': `${window.innerWidth - 42}px`
+      }
     }
   }
 

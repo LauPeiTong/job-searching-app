@@ -1,7 +1,7 @@
 <template lang="pug">
   v-btn.woreer-icon(icon :color="buttonColor" :width="width" :height="height" :to="to" )
     client-only
-      eva-icon(:name="iconName" :fill="iconFill" @click="emitClick")
+      eva-icon(:name="iconName" :fill="iconFill" @click="emitClick" :width="width" :height="height")
 </template>
 <script>
 export default {

@@ -2,6 +2,7 @@
   v-btn.woreer-button.text-none.rounded-lg(
     elevation="0"
     :block="block"
+    :dark="dark"
     :min-height="buttonMinHeight"
     :color="buttonColor"
     :plain="plain"
@@ -52,6 +53,10 @@ export default {
     block: {
       type: Boolean,
       default: true
+    },
+    dark: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,

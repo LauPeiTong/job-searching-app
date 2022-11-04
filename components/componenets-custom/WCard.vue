@@ -10,9 +10,10 @@
         v-col(:cols="10")
           p.mb-0.font-weight-medium.text-h6(:class="color ? 'white--text' : 'secondary--text'") {{ label }}
         v-col.text-right(v-if="cornerIcon" :cols="2")  
-          v-btn(icon width='32' height='32')
+          //- Error: child cannot be removed
+          v-btn(icon @click.stop="emitIconClick")
             client-only
-              eva-icon(:name="cornerIconName" :fill="cornerIconColor" @click="emitIconClick")
+              eva-icon(:name="cornerIconName" :fill="cornerIconColor"  width='32' height='32')
       p.mb-0.caption.font-weight-regular(:class="color ? 'white--text' : 'secondary--text'") {{ label2 }}
       p.mb-0.caption.font-weight-light(:class="color ? 'white--text' : 'secondary--text'") {{ label3 }}
       slot(name="action")
