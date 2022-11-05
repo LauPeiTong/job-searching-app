@@ -1,10 +1,10 @@
 <template lang="pug">
-.category-list
+.current-courses
   v-row.pa-0.ma-0.px-4
     v-col.pa-0.ma-0
-      p.text-h6.font-weight-bold.pt-4.mb-0 Category
+      p.text-h6.font-weight-bold.pt-4.mb-0 Current Courses
     v-col.pa-0.ma-0.d-flex
-      v-row.pt-4.mb-1.pr-4.align-end.justify-end(@click="viewAllCategories()")
+      v-row.pt-4.mb-1.pr-4.align-end.justify-end(@click="")
         p.mb-0 View all
         w-icon.ml-3(
           :height="20"
@@ -14,29 +14,28 @@
           @click=""
         )
 
-  v-row.pl-4.mx-0.scroll-x(:style="scrollSize")
+  v-row.px-4.mx-0.scroll-x(:style="scrollSize")
     vue-horizontal-list(
-      :items="categories"
+      :items="courses"
       :options="options"
     )
       template(v-slot:default="{item}")
         w-card.d-flex.flex-column(
-          @click="goToJobsPage(item)"
-          :height="150"
+          @click=""
+          :height="200"
           :label="item.name"
-          :label2="'View the job related to ' + getName(item.name) + ' job'"
-          :color="cardColor(item.id)"
+          :label2="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
         )
           template(v-slot:action)
             v-row.mt-4
               v-col.py-0
                 v-chip(
                   outlined
-                  color="white"
+                  :color="$vuetify.theme.themes.light.secondary"
                 )
-                  span {{ item.new_job }} New
+                  span Status: {{ item.completed_level }} / {{ item.total_level }}
               v-col.py-0.justify-end.text-right
-                eva-icon(name="arrow-circle-right" fill="white" height="32" width="32")
+                eva-icon(name="arrow-circle-right" :fill="$vuetify.theme.themes.light.secondary" height="32" width="32")
       
 </template>
 
@@ -47,7 +46,7 @@ import WCard from '../componenets-custom/WCard.vue'
 import WIcon from '../componenets-custom/WIcon.vue'
 
 export default {
-  name: 'CategoryList',
+  name: 'CurrentCourses',
   components: {
     WCard,
     WIcon,
@@ -59,7 +58,7 @@ export default {
     return {
       options: {
         responsive: [
-          { end: 500, size: 1.75 }
+          { end: 500, size: 1.25 }
         ],
         list: {
           // Because: #app {padding: 80px 24px;}
@@ -70,33 +69,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      categories: 'job/getCategories',
+      courses: 'course/getCurrentCourses',
       scrollSize: 'screen/getScrollXClass',
     }),
   },
   methods: {
     ...mapActions({
-      changeSelectedCategory: 'job/changeSelectedCategory'
-    }),
-    cardColor (id) {
-      if (id % 3 === 1) {
-        return '#404348'
-      } else if (id % 3 === 2) {
-        return '#918679'
-      } else {
-        return '#FEB81E'
-      }
-    },
-    getName (name) {
-      return name === 'IT' ? 'information technology' : name.toLowerCase()
-    },
-    viewAllCategories () {
-      this.$router.push('/categories')
-    },
-    goToJobsPage (item) {
-      this.changeSelectedCategory(item)
-      this.$router.push('/jobs')
-    }
+    })
   }
 }
 </script>

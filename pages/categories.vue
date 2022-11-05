@@ -3,13 +3,13 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="'Category'" :icon="'bookmark'" :title-class="'dark-background'" @goBack="goBackToJobPage" :back="true")
     w-search-bar.ma-0(@change="searchBy")
-  .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
-    v-item-group.pt-2.pb-12
+  .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    v-item-group.pt-12.pb-12
       v-row.px-6
         v-col.px-1.py-2(v-for='item in categories' :key="item.id" :cols='6' )
           w-card.d-flex.flex-column(
             @click="goToJobsPage(item)"
-            :height="150"
+            :height="200"
             :label="item.name"
             :label2="'View the job related to ' + getName(item.name) + ' job'"
             :color="cardColor(item.id)"

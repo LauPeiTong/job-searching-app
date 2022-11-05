@@ -3,10 +3,10 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="'Job'" :icon="'bookmark'")
     w-search-bar.ma-0(@change="searchBy")
-  .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
-      statistic-card.pb-2
-      category-list.pb-4.px-4
-      job-list.px-4.pb-4(:items="recommendedJob" :title="'Recommeded for you'")
+  .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    statistic-card.pt-10.pb-2
+    category-list.pb-4
+    job-list.px-4.pb-4(:items="recommendedJob" :title="'Recommeded for you'")
 </template>
 
 <script>

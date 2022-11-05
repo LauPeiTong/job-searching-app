@@ -1,6 +1,6 @@
 <template lang="pug">
 .statistic-card.px-4
-  v-card.rounded-lg(outlined)
+  v-card.rounded-lg(outlined @click="")
     v-list-item.pt-2(three-line)
       v-list-item-content
         v-list-item-title.secondary--text.font-weight-bold.text-h5.mt-2 Job Statistics

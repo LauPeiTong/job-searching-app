@@ -76,6 +76,7 @@ export default {
   top: 0;
   width: 100%;
   border-radius: 0px 0px 25px 25px;
+  z-index: 100;
 }
 
 .dark-background {

@@ -48,5 +48,6 @@ export default {
   position: absolute;
   top: 70px;
   width: 100%;
+  z-index: 100;
 }
 </style>

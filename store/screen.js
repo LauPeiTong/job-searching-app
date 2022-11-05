@@ -3,6 +3,7 @@
   
   export const getters = {
     getScrollClass (state) {
+      console.log(window.innerHeight - 165)
       return {
         height: `${window.innerHeight - 165}px`
       }

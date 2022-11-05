@@ -3,7 +3,10 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="'Course'" :icon="'bookmark'")
     w-search-bar.ma-0(@change="searchBy")
-  .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
+  .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    continue-course.pt-10.pb-2
+    course-category.px-4.pb-4
+    current-courses.pb-4
 </template>
 
 <script>
@@ -11,12 +14,18 @@ import { mapGetters } from 'vuex'
 
 import UpperTitle from '../components/UpperTitle.vue'
 import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
+import ContinueCourse from '../components/course/ContinueCourse.vue'
+import CourseCategory from '../components/course/CourseCategory.vue'
+import CurrentCourses from '../components/course/CurrentCourses.vue'
 
 export default {
   name: 'CoursePage',
   components: {
     UpperTitle,
-    WSearchBar
+    WSearchBar,
+    ContinueCourse,
+    CourseCategory,
+    CurrentCourses
   },
   layout: 'default',
   data () {
@@ -36,3 +45,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+:deep(.scroll) {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100% !important;
+}
+
+</style>

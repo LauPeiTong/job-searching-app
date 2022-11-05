@@ -10,7 +10,7 @@
         tile
         block
         :color="getButtonColor(menu.name)"
-        :icon-name="menu.name === currentPath ? menu.iconFill : menu.icon"
+        :icon-name="checkRoute(menu.name) ? menu.iconFill : menu.icon"
         :icon-fill="getButtonColor(menu.name)"
         @click="goToPath(menu)"
       )
@@ -86,6 +86,9 @@ export default {
         ? this.$vuetify.theme.themes.light.primary
         : this.$vuetify.theme.themes.light.secondary
     },
+    checkRoute (routeName) {
+      return this.currentRouteName === routeName
+    },
     goToPath (menu) {
       this.changeCurrentPath(menu.name)
       this.$router.push({
@@ -109,6 +112,7 @@ export default {
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .bottom-column-content-area {

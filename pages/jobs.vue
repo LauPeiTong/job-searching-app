@@ -3,8 +3,8 @@
   v-row.pa-0.ma-0.upper-row
     upper-title.ma-0(:title="selectedCategory.name" :icon="'bookmark'" :title-class="'dark-background'" @goBack="goBackToPreviousPage" :back="true")
     w-search-bar.ma-0(@change="searchBy")
-  .scroll.ma-0.mt-10.justify-top.align-center(:style="scrollSize")
-    job-list.px-4.pb-4.pt-1(:items="jobs" :tag="tag")
+  .scroll.ma-0.justify-top.align-center(:style="scrollSize")
+    job-list.px-4.pb-4.pt-11(:items="jobs" :tag="tag")
 
 </template>
 
