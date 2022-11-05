@@ -4,8 +4,7 @@
 
 <script>
 export default {
-  name: 'EmptyLayout',
-  layout: 'empty',
+  name: 'ErrorLayout',
   props: {
   },
   data() {

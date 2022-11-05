@@ -23,7 +23,7 @@
               )
                 span 5 New
             v-col.py-0.justify-end.text-right
-              eva-icon(name="arrow-circle-right" fill="white" height="32" width="32")
+              eva-icon(name="file-text" fill="white" height="28" width="28")
     v-col.pl-1(:cols="6")
       w-card.d-flex.flex-column(
         @click=""
@@ -41,7 +41,7 @@
               )
                 span 17 New
             v-col.py-0.justify-end.text-right
-              eva-icon(name="arrow-circle-right" fill="white" height="32" width="32")
+              eva-icon(name="file-text" fill="white" height="28" width="28")
 
 </template>
 

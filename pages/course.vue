@@ -7,6 +7,7 @@
     continue-course.pt-10.pb-2
     course-category.px-4.pb-4
     current-courses.pb-4
+    course-list.px-4.pb-4(:items="recommendedCourse" :title="'Recomended for you'")
 </template>
 
 <script>
@@ -17,6 +18,7 @@ import WSearchBar from '../components/componenets-custom/WSearchBar.vue'
 import ContinueCourse from '../components/course/ContinueCourse.vue'
 import CourseCategory from '../components/course/CourseCategory.vue'
 import CurrentCourses from '../components/course/CurrentCourses.vue'
+import CourseList from '../components/course/CourseList.vue'
 
 export default {
   name: 'CoursePage',
@@ -25,7 +27,8 @@ export default {
     WSearchBar,
     ContinueCourse,
     CourseCategory,
-    CurrentCourses
+    CurrentCourses,
+    CourseList
   },
   layout: 'default',
   data () {
@@ -36,6 +39,7 @@ export default {
   computed: {
     ...mapGetters({
       scrollSize: 'screen/getScrollClass',
+      recommendedCourse: 'course/getRecommendedCourses'
     })
   },
   methods: {

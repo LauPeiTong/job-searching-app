@@ -44,8 +44,8 @@
         v-divider.mt-8
 
         .job-overview
-        p.mt-4.mb-0.font-weight-bold.text-h6.secondary--text Job Overview
-        job-description.pt-2(:company="company")
+          p.mt-4.mb-0.font-weight-bold.text-h6.secondary--text Job Overview
+          job-description.pt-2(:company="company")
         
         
 </template>

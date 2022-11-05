@@ -5,7 +5,7 @@
     getScrollClass (state) {
       console.log(window.innerHeight - 165)
       return {
-        height: `${window.innerHeight - 165}px`
+        height: `${window.innerHeight - 150}px`
       }
     },
     getScrollXClass (state) {
