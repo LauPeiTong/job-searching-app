@@ -17,6 +17,7 @@
       p.mb-0.caption.font-weight-regular(:class="color ? 'white--text' : 'secondary--text'") {{ label2 }}
       p.mb-0.caption.font-weight-light(:class="color ? 'white--text' : 'secondary--text'") {{ label3 }}
       slot(name="action")
+      slot(name="content")
 </template>
 <script>
 export default {
