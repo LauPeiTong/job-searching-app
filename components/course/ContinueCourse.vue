@@ -1,6 +1,6 @@
 <template lang="pug">
 .continue-course
-  v-card.mx-4.rounded-lg(outlined @click="")
+  v-card.mx-4.rounded-lg(outlined @click="goToCourseDetailsPage()")
     v-list-item.pt-2(three-line)
       v-list-item-content
         v-list-item-title.secondary--text.font-weight-bold.text-h5.mt-2(v-if="course.name.length < 20") {{ course.name }}
@@ -26,12 +26,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      course: 'course/getRecentCourse'
+      course: 'course/getRecentCourse',
+      recentCourse: 'course/getRecentCourse'
     }),
   },
   methods: {
     ...mapActions({
+      changeSelectedCourse: 'course/changeSelectedCourse'
     }),
+    goToCourseDetailsPage () {
+      console.log(1)
+      this.changeSelectedCourse(this.recentCourse)
+      this.$router.push('/coursedetails')
+    }
   }
 }
 </script>
