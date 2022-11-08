@@ -10,7 +10,7 @@
     },
     getScrollXClass (state) {
       return {
-        width: `${window.innerWidth - 16}px`
+        width: `${window.innerWidth - 2}px`
       }
     },
     getWidthClass (state) {
